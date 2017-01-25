@@ -31,7 +31,57 @@ div.box{
   width: 200px;
   height:230px;
   float:left;
+  -webkit-transition: height .4s;
 }
-div#uno{
-  
+div#one{
+  background-color: #c78a15;
+}
+div#two{
+  background-color: #9c550b;
+}
+div#three{
+  background-color: #2864aa;
+}
+div#four{
+  background-color: #0003ff;
+}
+div#five{
+  background-color: #0964ff;
+}
+div#six{
+  background-color: #552323;
+}
+img.icon{
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 50px auto;
+  padding: 20px;
+  -webkit-border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  -webkit-box-shadow: 0px 0px 0px 30px rgba(255, 250, 250, 0);
+  -webkit-transition:box-shadow 0.4s;
+}
+p.texto{
+  font-size: 2.0em;
+  color:white;
+  padding-top: 10px;
+  opacity: .6;
+  -webkit-transition: padding-top .4s;
+
+}
+div.box:hover{
+  height: 250px;
+}
+div.box:hover p.texto{
+  padding-top: 35px;
+  opacity: 1;
+}
+div.box:hover img.icon{
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.6);
+}
+p.fin{
+  color:#fff;
+  text-align: center;
+  padding-top:90px;
 }
