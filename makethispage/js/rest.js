@@ -1,3 +1,15 @@
 //comment: I wanna know the way to learn quickly this language.
 var x = 12;
-alert("THIS IS AN ALERT BOX TO KNOW IF THIS IS WORKING. NEW CHANGES");
+/*whoAreYou();
+function whoAreYou(){
+  var user = prompt("Please enter your name here:");
+  aler(user);
+}*/
+function leave(){
+  var question = confirm("Do you wanna leave this page?");
+  if(question==true){
+    alert("Thank you for visiting my page");
+  }else{
+    alert("Thank you for staying with me");
+  }
+}
