@@ -25,6 +25,12 @@
   top:20px;
   bottom: 0px;
 }
+#flash{
+  margin: 200px;
+  border-top: 200px;
+  padding-top: 200px;
+  
+}
 body{
   background-image: url("https://santaguidafinefoods.com/file/2014/08/web-design-fp-home-page-background.jpg");
   background-image: image(auto);
