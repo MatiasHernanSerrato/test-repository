@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="es" ng-app="theApp">
+  <head>
+    <meta charset="utf-8">
+    <title>NEW THINGS</title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="controladorJson.js"></script>
+  </head>
+  <body ng-controller="verdadero">
+<h3>TO DO LIST</h3>
+<ul>
+  <li ng-repeat="activity in todo">
+    {{activity.description}} -
+    {{activity.date | date: 'short'}}
+  </li>
+</ul>
+<form ng-submit="addAct()">
+  <input type="text" ng-model="newAct.description" />
+  <input type="datetime-local" ng-model="newAct.date" />
+  <input type="submit" value="Save activity" />
+</form>
+<button ng-click="clean()">Clean</button>
+<hr />
+<h3>ACTUALIZA EN 2 SEGUNDOS ---->: {{nombre}}</h3>
+<button id="myButton">Click here</button>
+<hr />
+<hr />
+
+<ul ng-hide="">
+  <li ng-repeat="post in posts">
+    <h2>{{post.title}}</h2>
+    <p>
+      {{post.body}}
+    </p>
+  </li>
+</ul>
+<hr />
+<button ng-mouseover="bandera = true" ng-mouseout="bandera= false">
+Hover me
+</button>
+<span ng-show="bandera">Click me</span>
+<p>
+  {{bandera | json}}
+</p>
+
+  </body>
+</html>

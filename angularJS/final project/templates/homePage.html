@@ -1,0 +1,22 @@
+
+<div id="containerHome" style="background-color:#252932;height:500px;">
+  <div id="containerAddTask" style="background-color:#4857a4;">
+    <h1>{{name}}</h1>
+  <input type="text" ng-model="searchText" placeholder="Search.." /><br />
+  <input id="enter" type="text" class='input-text'ng-model="newTask" placeholder="What to be done?"></input>
+  <button ng-click="addTask()">Add task</button><br />
+  <button ng-click="clearAll()">Clear all</button>
+  <button ng-click="clearCompleted()">Clear completed</button>
+  <button ng-click="save()">Save</button>
+  </div>
+  <div id="containerList" style="background-color:#66a242">
+    <h1>space</h1>
+    <ul id="myListStyle">
+      <li ng-repeat="deTask in gtTask | filter:searchText">
+        <input type="checkbox" ng-model="deTask.done" />
+        <span class="completed-{{deTask.done}}">{{deTask.text}}</span>
+        <button ng-click="remove(deTask)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>

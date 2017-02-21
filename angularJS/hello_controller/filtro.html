@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html ng-app="filter">
+<head>
+  <meta charset="utf-8" />
+  <title>FILTRO</title>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script src="filterrr.js"></script>
+</head>
+<body ng-app>
+<h1> Pantalon azul:</h1><hr />
+  <h3>Costo : {{15 | currency:"ARG $"}}</h3>
+<h3>Costo : {{12 | currency:"USD $"}}</h3>
+<p>{{"PROCEDENCIA" | lowercase}}</p>
+
+<ul>
+  <li>{{"Chile" | uppercase}}</li>
+  <li>
+    {{"Argentina" | uppercase}}
+  </li>
+  <li>
+    {{"BrAZIL" | uppercase}}
+  </li>
+  <li>
+    {{"EstADOS uniDOS" | uppercase}}
+  </li>
+</ul>
+<p>
+  nivel de venta del vendedor {{93.323213213 | number: 2}}
+</p>
+<p>
+  STOCK: {{true | number}}
+</p>
+
+</body>
+</html>

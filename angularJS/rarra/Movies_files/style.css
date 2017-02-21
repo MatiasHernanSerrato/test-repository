@@ -1,0 +1,368 @@
+@import url("reset.css");
+
+.no-select, button {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.clearfix:after, .clearfix:before {
+    display: table;
+    content: " ";
+}
+
+:after {
+    clear: both;
+}
+
+.em {
+	height: 1.5em;
+	width: 1.5em;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	vertical-align: middle
+}
+
+.em-cry {
+	background-image: url("../img/cry.png")
+}
+
+body {
+	font-size: 1.125em;
+	font-family: sans-serif;
+	background-color: #111;
+	color: #999;
+}
+
+img {
+	-webkit-touch-callout: none !important;
+	-webkit-user-select: none !important;
+	-moz-user-select: none !important;
+	-ms-user-select: none !important;
+	user-select: none !important;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	border: 0;
+}
+
+header>nav {
+	background-color: #222;
+	height: 60px;
+	line-height: 60px;
+	color: inherit;
+}
+
+#logo, .search-input:focus, #menu li:hover, #title .title, .movieTitle {
+	color: #eee;
+}
+
+#logo {
+	font-size: 40px;
+	margin-left: 20px;
+	float: left;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.search, .search-input, #menu li {
+	-webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	transition: all .3s ease;
+}
+
+.search {
+	height: 100%;
+	float: right;
+	width: 20%;
+}
+
+.search-input {
+	font-size: .9em;
+	background-color: #333;
+	border: none;
+	width: 90%;
+	display: block;
+	height: 100%;
+	padding: 0 5%;
+	color: inherit;
+}
+
+	.search-input:focus {
+		outline: none;
+		background-color: #4b4b4b;
+	}
+
+#menu {
+	float: right;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+	#menu li {
+		float: left;
+		max-height: 100%;
+		border-left: 1px solid #333;
+	}
+
+		#menu li a {
+			padding: 20px 30px;
+		}
+
+	#menu li:hover {
+		background-color: #111;
+	}
+
+h1 {
+	font-size: 25px;
+}
+
+.barColor {
+	height: 2px;
+	background: #ff6c00;
+	background: -moz-linear-gradient(left,#ff6c00 0%,#b60098 25%,#009ee0 50%,#e3003e 75%,#fabb00 100%);
+	background: -webkit-gradient(linear,left top,right top,color-stop(0%,#ff6c00),color-stop(25%,#b60098),color-stop(50%,#009ee0),color-stop(75%,#e3003e),color-stop(100%,#fabb00));
+	background: -webkit-linear-gradient(left,#ff6c00 0%,#b60098 25%,#009ee0 50%,#e3003e 75%,#fabb00 100%);
+	background: -o-linear-gradient(left,#ff6c00 0%,#b60098 25%,#009ee0 50%,#e3003e 75%,#fabb00 100%);
+	background: -ms-linear-gradient(left,#ff6c00 0%,#b60098 25%,#009ee0 50%,#e3003e 75%,#fabb00 100%);
+	background: linear-gradient(to right,#ff6c00 0%,#b60098 25%,#009ee0 50%,#e3003e 75%,#fabb00 100%);
+}
+
+.container {
+	background-color: #222;
+	width: 90%;
+	margin: 10px auto;
+	padding: 10px 10px 0 0;
+}
+
+	.container>div>div>p {
+		float: left;
+		margin: 0 0 10px 10px;
+	}
+
+	.movieItem {
+		position: relative;
+		background-color: #333;
+		padding: 10px;
+		width: 125px;
+		float: left;
+		margin: 0 0 10px 10px;
+	}
+
+		.movieTitle, .movieInfo {
+			display: inline-block;
+		}
+
+		.movieTitle {
+			font-size: 18px;
+			margin-bottom: 5px;
+		}
+
+		.movieInfo {
+			font-size: 15px;
+		}
+
+		.movieSettings {
+			position: absolute;
+			top: 0;
+			right: 0;
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s, opacity 0.3s linear;
+		}
+
+			.settingsBtn {
+				margin: 3px 3px 0 0;
+				float: right;
+				height: 16px;
+				width: 16px;
+			}
+
+		.movieItem:hover .movieSettings {
+			visibility: visible;
+			opacity: 1;
+		}
+
+	#addMovie {
+		width: 53px;
+		height: 53px;
+	}
+
+#newMovie, #editMovie {
+	float: none;
+	margin: 0 auto 10px;
+	width: 300px;
+}
+
+	#newMovie input[type="text"], #newMovie input[type="number"], #editMovie input[type="text"], #editMovie input[type="number"] {
+		width: 296px;
+		margin-bottom: 3px;
+	}
+
+	#newMovie button[type="submit"], #editMovie button[type="submit"] {
+		width: 300px;
+	}
+
+	#newMovie textarea, #editMovie textarea {
+		max-width: 294px;
+		min-width: 294px;
+		min-height: 50px;
+		margin-bottom: 3px;
+	}
+
+	#newMovie p, #editMovie p {
+		font-size: 15px;
+		font-style: italic;
+		margin-bottom: 3px;
+	}
+
+[class*='btn-'] {
+	border: none;
+	border-bottom: 2px solid rgba(0,0,0,.15);
+	border-top: 1px solid rgba(255,255,255,.15);
+	border-radius: 3px;
+	color: #fff;
+	display: inline-block;
+	font: -webkit-small-control;
+	font-size: .7em;
+	letter-spacing: 1px;
+	height: 32px;
+	padding: 0;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	text-transform: uppercase;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	-o-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+	outline: none;
+}
+
+[class*='btn-']:disabled {
+	pointer-events: none;
+	cursor: not-allowed;
+	opacity: .65;
+}
+
+	.btn-add, .btn-edit {
+		background-color: #fff;
+		border-radius: 0;
+		border: 1px solid rgb( 186, 186, 186 );
+		color: #111;
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+	}
+
+	.btn-add:hover, .btn-edit:hover {
+		background-color: #73d036;
+		border: 1px solid rgba(0,0,0,.1);
+		color: #fff;
+		cursor: pointer;
+		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+	}
+
+	.btn-add:active, .btn-edit:active {
+		box-shadow: 0 1px 1px rgba(0,0,0,0.15) inset;
+		text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+	}
+
+#msgList {
+	width: 210px;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: #fff;
+	text-align: center;
+	visibility: visible;
+	transition: all .3s linear;
+}
+
+	#msgList .msg {
+		margin-bottom: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		visibility: hidden;
+		opacity: 0;
+		transition: inherit;
+		background-color: rgba(125, 125, 125, 0.9);
+	}
+
+		#msgList .msg:last-child {
+			margin-bottom: 0;
+		}
+
+	#msgList .show {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	#msgList .success {
+		background-color: rgba(100, 200, 50, 0.9);
+	}
+
+	#msgList .error {
+		background-color: rgba(200, 50, 50, 0.9);
+	}
+
+	#msgList .info {
+		background-color: rgba(75, 100, 175, 0.9);
+	}
+
+.imgBtn {
+	cursor: pointer;
+	background-size: 100% 100%;
+	outline: none;
+}
+
+#movieDetails {
+	margin: 0 0 10px 10px;
+}
+
+	#title .title, #title .year {
+		display: inline-block;
+	}
+
+	#title #info {
+		font-size: 14px;
+		margin-top: 7px;
+	}
+
+	#description {
+		line-height: 140%;
+		text-align: justify;
+		font-size: .9em;
+	}
+
+.ng-enter {
+	transition: 0.75s;
+	opacity: 0;
+}
+
+.ng-enter-stagger {
+	transition-delay: 0.1s;
+}
+
+.ng-enter-active {
+	opacity: 1;
+}
+
+.ng-leave {
+	transition: 0.75s;
+	opacity: 1;
+}
+
+.ng-leave-stagger {
+	transition-delay: 0.1s;
+}
+
+.ng-leave-active {
+	opacity: 0;
+}
+

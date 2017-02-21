@@ -1,0 +1,29 @@
+#basura{
+  border-style: double;
+  border-color: #fff;
+}
+body{
+  background-image: url(backgroundWWP.jpg);
+}
+#sublime{
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-family:sans-serif;
+}
+
+#propioStyle{
+background-color: rgba(59,110,139,.72);
+width: auto;
+height:200px;
+border-radius: 5px;
+padding:20px;
+}
+
+.segundoEstilo{
+  background-color: rgba(201,36,0,.72);
+  width: auto;
+  height:200px;
+  border-radius: 5px;
+  padding:20px;
+}

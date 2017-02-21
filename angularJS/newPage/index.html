@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="newApp">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style/style.css" type="text/css" />
+    <script type="text/javascript" src="angularJS/angular.min.js"></script>
+    <script type="text/javascript" src="angularJS/angular-resource.min.js"></script>
+    <script type="text/javascript" src="angularJS/angular-route.min.js"></script>
+    <script type="text/javascript" src="angularJS/jquery-3.1.1.slim.min.js"></script>
+    <script type="text/javascript" src="Jscript/controller.js"></script>
+
+    <title>New Page</title>
+  </head>
+  <body>
+<table id="notero" align="center">
+    <tr>
+        <td id="cabeza" colspan="2" class="header">
+            <div>
+              <img src="https://u.jimcdn.com/e/o/s84e2013d9960eb68/emotion/crop/header.jpg?t=1296507214" height="110px" width="1050px">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="leftMenu">
+          <div id="links">
+            <a href="#!/">Home</a>
+              <br />
+              <a href="#!/movies">Movies</a>
+              <br />
+              <a href="#!/users">Users</a>
+              </div>
+        </td>
+        <td id="mainContent">
+          <div ng-view></div>
+        </td>
+    </tr>
+    <tr>
+
+        <td colspan="2" class="footer">
+
+            <b>by Matías Hernan Serrato 2017</b> </td>
+    </tr>
+</table>
+
+  </body>
+</html>

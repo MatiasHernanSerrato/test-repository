@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="moviesApp">
+<head>
+<meta charset="utf-8">
+	<title>Movies</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").children().each(function(){
+				if(this.hasAttribute("style")){
+					this.remove();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div id="logo">
+				<a href="#!/">Movies</a>
+			</div>
+			<div class="search">
+				<input class="search-input" type="text" ng-model="searchMovie" placeholder="Search" autocomplete="off">
+			</div>
+			<ul id="menu">
+				<li><a href="#!/">Home</a></li>
+				<li><a href="#!/addMovie">Add Movie</a></li>
+			</ul>
+		</nav>
+		<div class="barColor"></div>
+	</header>
+	<div class="container clearfix">
+		<div ng-view></div>
+	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-local-storage.min.js"></script>
+	<script type="text/javascript" src="js/angular-route.min.js"></script>
+	<script type="text/javascript" src="js/angular-animate.min.js"></script>
+	<script type="text/javascript" src="js/moviesApp.js"></script>
+<div style='text-align: right;position: fixed;z-index:9999999;bottom: 0; width: 100%;cursor: pointer;line-height: 0;'><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&utm_campaign=000_logo&utm_medium=website_rarra&utm_content=footer_img"><img src="https://cloud.githubusercontent.com/assets/23024110/20663010/9968df22-b55e-11e6-941d-edbc894c2b78.png"  alt="www.000webhost.com"></a></div></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoList">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-DO List</title>
+    <script type="text/javascript" src="angularJS/angular.min.js"></script>
+    <script type="text/javascript" src="angularJS/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="angularJS/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/todoController.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <header id="head">
+      <div class="wrapper">
+        <div class="logo">To-Do List</div>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Add task</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+      <!--<div id="container" class="wrapper">-->
+      <div ng-view class="wrapper"></div>
+
+  </body>
+  <footer style="color:white;background-color:black;text-align:center;margin-top:10px;" width="100%">
+    <h6>Developed by Matías Serrato.</h6>
+  </footer>
+</html>

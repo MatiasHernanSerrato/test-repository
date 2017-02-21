@@ -1,0 +1,96 @@
+#sese{
+  margin-top: 20px;
+  text-align: center;
+  width: auto;
+  color: #fff;
+  align-items: center;
+  font-size: 90px;
+  background-color: #534fb1;
+  display: block;
+}
+#bass{
+  list-style: none;
+  color: #000;
+  text-align: center;
+  align-items: center;
+  background-color: #677778;
+  box-shadow: 10px 10px 5px 5px rgba(136,136,136,.67);
+}
+#titleMovie{
+  border: 2px;
+  font-size: 20px;
+  background-color: #e6dcc7;
+  border-style: outset;
+}
+#infoMovie{
+  background-color: #8a7894;
+  border-style:ridge;
+}
+#notero{
+  height: auto;
+  width: 1000px;
+  min-width: 600px;
+  max-width: 1500px;
+}
+#cabeza{
+  background-color: #000;
+}
+
+table{
+font-family: "Courier New"
+}
+h1{
+  font-size: 70px;
+  color:white;
+  margin: 0 auto;
+}
+body{
+  background-image: url(backgroundWWP.jpg);
+}
+
+.header {
+  width: auto;
+   height: auto;
+    text-align: center;
+     background-color: rgba(164,102,44,.9);
+}
+
+.footer {
+  background-color: #4d3333;
+   text-align: center;
+   color:white;
+}
+
+.leftMenu { height: 500px;
+   background-color: #856b6b;
+    width: 150px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#mainContent {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgba(161,144,144,.47);
+
+}
+
+#links{
+  border:20px solid rgba(4,3,3,.48);
+  -moz-background-clip:padding-boz;
+  background-clip: padding-box;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+  display:block;
+  padding:5px;
+  color:white;
+  font-size: 20px;
+  background-color: rgba(65,24,24,.84);
+}

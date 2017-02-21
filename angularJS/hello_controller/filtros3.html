@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="es" ng-app="mainApp">
+<head >
+  <meta charset="utf-8" />
+  <title>PAGINA PRUEBA</title>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" src="notero.js"></script>
+</head>
+<body id="sublime" ng-app>
+  <center>
+  Buscar fruta:
+<input type="text" ng-model="buscarFruta" />
+</center>
+<div ng-controller="listas">
+<ul>
+<li ng-repeat="fruta in frutas | filter:buscarFruta">
+  {{fruta}}
+</li>
+  </ul>
+</div>
+<hr />
+<div ng-controller="operaciones">
+<input type="number" ng-model="valorA" />
+<input type="number" ng-model="valorB" />
+<button ng-click="sumar()">Sumar</button>
+<button ng-click="restar()">Restar</button>
+<button ng-click="multiplicar()">Multiplicar</button>
+<hr />
+<center>
+<p>
+El resultado es:  {{resultado}}
+</p>
+</div>
+<hr id="basura"/>
+<p>
+  Ingrese texto para cambiar model usando directivas:
+<input type="text" ng-model="loQuePongo" />
+<br /><br />
+Lo que se ingresa es: {{loQuePongo}}
+<br /> <hr />
+<h3>USO DE NG-BIND Y CARGA NORMAL DE EXPRESION</h3>
+<!-- La expresión si es que no esta cargado Angular js se va a ver como texto
+en muchos ordenadores lentos-->
+Esta es una expresión: {{10+10}} <br />
+<!-- En cambio con ng-bind se va a mostar una vez este listo todo, aunque si
+tenemos un aplicación grande vamos a tardar mucho mas en examinar el codigo-->
+ Esto es con ng-bing: <p ng-bind="10+10"></p>
+</p>
+<hr />
+<div ng-controller="coments" id=commm>
+  Comentario: <input type="text" ng-model="newComent.comentario" /> <br />
+  Nombre user:<input type="text" ng-model="newComent.username" /> <br />
+  <button ng-click="addComent()">Agregar comentario</button>
+<h3>COMENTARIOS</h3>
+<ul>
+  <li ng-repeat="comentario in comentarios">
+    {{ comentario.comentario}} - <strong>{{comentario.username}}</strong>
+  </li>
+</ul>
+
+</div>
+<!--
+<div id="propioStyle" ng-controller="styleController" ng-style="angularStyle" ng-class="claseAngular">
+  <div class="preguntas">
+    <button ng-click="opcionA()">opcionA</button>
+    <button ng-click="opcionB()">opcionB</button>
+    <hr />
+    <button ng-click="cambiarEstilo()">Cambiar estilo</button>
+    <button ng-click="cambiarClase()">Cambiar clase</button>
+    <hr />
+    <button ng-click="ocultarCajas()">Ocultar cajas</button>
+    <button ng-click="mostrarCajas()">Mostrar cajas</button>
+  </div>
+</div>
+-->
+</center>
+
+
+</body>
+</html>

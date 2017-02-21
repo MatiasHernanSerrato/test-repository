@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://rarra.000webhostapp.com/#!/ -->
+<html ng-app="moviesApp" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+
+	<title>Movies</title>
+	<link rel="stylesheet" href="./Movies_files/style.css">
+	<script type="text/javascript" src="./Movies_files/jquery-3.1.1.min.js.descarga"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").children().each(function(){
+				if(this.hasAttribute("style")){
+					this.remove();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div id="logo">
+				<a href="http://rarra.000webhostapp.com/#!/">Movies</a>
+			</div>
+			<div class="search">
+				<input class="search-input ng-pristine ng-untouched ng-valid ng-empty" type="text" ng-model="searchMovie" placeholder="Search" autocomplete="off">
+			</div>
+			<ul id="menu">
+				<li><a href="http://rarra.000webhostapp.com/#!/">Home</a></li>
+				<li><a href="http://rarra.000webhostapp.com/#!/addMovie">Add Movie</a></li>
+			</ul>
+		</nav>
+		<div class="barColor"></div>
+	</header>
+	<div class="container clearfix">
+		<!-- ngView: --><div ng-view="" class="ng-scope" style=""><div ng-controller="movieList" class="clearfix ng-scope">
+	<!-- ngRepeat: movie in filteredMovies = (movies | filter:searchMovie) | orderBy:'+title' --><div ng-repeat="movie in filteredMovies = (movies | filter:searchMovie) | orderBy:&#39;+title&#39;" class="movieItem ng-scope">
+		<div class="movieSettings">
+			<img class="imgBtn settingsBtn" ng-click="deleteMovie(movie.title)" draggable="false" src="./Movies_files/Delete.png" alt="Delete" title="Delete">
+			<a href="http://rarra.000webhostapp.com/#!/editMovie/Avatar"><img class="imgBtn settingsBtn" draggable="false" src="./Movies_files/Edit.png" alt="Edit" title="Edit"></a>
+		</div>
+		<div class="movieTitle">
+			<a href="http://rarra.000webhostapp.com/#!/details/Avatar"><h2 class="ng-binding">Avatar</h2></a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="movieInfo">
+			<p class="ng-binding">Duration: 2h 42m</p>
+			<p class="ng-binding">Year: 2009</p>
+		</div>
+	</div><!-- end ngRepeat: movie in filteredMovies = (movies | filter:searchMovie) | orderBy:'+title' --><div ng-repeat="movie in filteredMovies = (movies | filter:searchMovie) | orderBy:&#39;+title&#39;" class="movieItem ng-scope">
+		<div class="movieSettings">
+			<img class="imgBtn settingsBtn" ng-click="deleteMovie(movie.title)" draggable="false" src="./Movies_files/Delete.png" alt="Delete" title="Delete">
+			<a href="http://rarra.000webhostapp.com/#!/editMovie/Hercules"><img class="imgBtn settingsBtn" draggable="false" src="./Movies_files/Edit.png" alt="Edit" title="Edit"></a>
+		</div>
+		<div class="movieTitle">
+			<a href="http://rarra.000webhostapp.com/#!/details/Hercules"><h2 class="ng-binding">Hercules</h2></a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="movieInfo">
+			<p class="ng-binding">Duration: 1h 33m</p>
+			<p class="ng-binding">Year: 1997</p>
+		</div>
+	</div><!-- end ngRepeat: movie in filteredMovies = (movies | filter:searchMovie) | orderBy:'+title' --><div ng-repeat="movie in filteredMovies = (movies | filter:searchMovie) | orderBy:&#39;+title&#39;" class="movieItem ng-scope">
+		<div class="movieSettings">
+			<img class="imgBtn settingsBtn" ng-click="deleteMovie(movie.title)" draggable="false" src="./Movies_files/Delete.png" alt="Delete" title="Delete">
+			<a href="http://rarra.000webhostapp.com/#!/editMovie/Terminator"><img class="imgBtn settingsBtn" draggable="false" src="./Movies_files/Edit.png" alt="Edit" title="Edit"></a>
+		</div>
+		<div class="movieTitle">
+			<a href="http://rarra.000webhostapp.com/#!/details/Terminator"><h2 class="ng-binding">Terminator</h2></a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="movieInfo">
+			<p class="ng-binding">Duration: 1h 30m</p>
+			<p class="ng-binding">Year: 1984</p>
+		</div>
+	</div><!-- end ngRepeat: movie in filteredMovies = (movies | filter:searchMovie) | orderBy:'+title' --><div ng-repeat="movie in filteredMovies = (movies | filter:searchMovie) | orderBy:&#39;+title&#39;" class="movieItem ng-scope">
+		<div class="movieSettings">
+			<img class="imgBtn settingsBtn" ng-click="deleteMovie(movie.title)" draggable="false" src="./Movies_files/Delete.png" alt="Delete" title="Delete">
+			<a href="http://rarra.000webhostapp.com/#!/editMovie/Titanic"><img class="imgBtn settingsBtn" draggable="false" src="./Movies_files/Edit.png" alt="Edit" title="Edit"></a>
+		</div>
+		<div class="movieTitle">
+			<a href="http://rarra.000webhostapp.com/#!/details/Titanic"><h2 class="ng-binding">Titanic</h2></a>
+		</div>
+		<div class="clearfix"></div>
+		<div class="movieInfo">
+			<p class="ng-binding">Duration: 3h 15m</p>
+			<p class="ng-binding">Year: 1997</p>
+		</div>
+	</div><!-- end ngRepeat: movie in filteredMovies = (movies | filter:searchMovie) | orderBy:'+title' -->
+	<div id="addMovie" class="movieItem">
+		<a href="http://rarra.000webhostapp.com/#!/addMovie"><img class="imgBtn" draggable="false" src="./Movies_files/Add.png" alt="Add" title="Add"></a>
+	</div>
+	<p ng-hide="filteredMovies.length" class="ng-hide">No results <i class="em em-cry"></i></p>
+</div></div>
+	</div>
+	<script type="text/javascript" src="./Movies_files/angular.min.js.descarga"></script>
+	<script type="text/javascript" src="./Movies_files/angular-local-storage.min.js.descarga"></script>
+	<script type="text/javascript" src="./Movies_files/angular-route.min.js.descarga"></script>
+	<script type="text/javascript" src="./Movies_files/angular-animate.min.js.descarga"></script>
+	<script type="text/javascript" src="./Movies_files/moviesApp.js.descarga"></script>
+
+</body></html>

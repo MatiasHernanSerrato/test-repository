@@ -1,0 +1,234 @@
+var moviesApp = angular.module("moviesApp", ["LocalStorageModule", "ngRoute", "ngAnimate"])
+
+		.controller('movieList', ['$scope', 'localStorageService', movieListController])
+
+		.controller('editMovie', ['$scope', '$routeParams', 'localStorageService', editMovieController])
+
+		.controller('movieDetails', ['$scope', '$routeParams', 'localStorageService', movieDetailsController]);
+
+var lsName = "moviesList"; //Nombre utilizado para guardar las películas en el LocalStorage
+
+function movieListController($scope, localStorageService){
+	var moviesList = getItem(lsName);
+	if(moviesList != null && moviesList.length > 0){
+		$scope.movies = moviesList;
+	} else {
+		var defaultMovies = [
+			{
+				title: "Avatar",
+				year: 2009,
+				duration: 162,
+				description: "When his brother is killed in a robbery, paraplegic Marine Jake Sully decides to take his place in a mission on the distant world of Pandora. There he learns of greedy corporate figurehead Parker Selfridge's intentions of driving off the native humanoid \"Na'vi\" in order to mine for the precious material scattered throughout their rich woodland. In exchange for the spinal surgery that will fix his legs, Jake gathers intel for the cooperating military unit spearheaded by gung-ho Colonel Quaritch, while simultaneously attempting to infiltrate the Na'vi people with the use of an \"avatar\" identity. While Jake begins to bond with the native tribe and quickly falls in love with the beautiful alien Neytiri, the restless Colonel moves forward with his ruthless extermination tactics, forcing the soldier to take a stand - and fight back in an epic battle for the fate of Pandora.",
+				tags: ["travel", "ships", "space", "aliens", "bugs", "monsters", "blue"]
+			},
+			{
+				title:"Hercules",
+				year: 1997,
+				duration: 93,
+				description: "Hercules, son of the Greek God, Zeus, is turned into a half-god, half-mortal by evil Hades, God of the Underworld, who plans to overthrow Zeus. Hercules is raised on Earth and retains his god-like strength, but when he discovers his immortal heritage Zeus tells him that to return to Mount Olympus he must become a true hero. Hercules becomes a famous hero with the help of his friend Pegasus and his personal trainer, Phil the satyr. Hercules battles monsters, Hades and the Titans, but it is his self-sacrifice to rescue his love Meg which makes him a true hero.",
+				tags: ["hércules", "heracles", "strong", "super strength"]
+			},
+			{
+				title: "Terminator",
+				year: 1984,
+				duration: 90,
+				description: "In the future, Skynet, a computer system fights a losing war against the humans who built it and who it nearly exterminated. Just before being destroyed, Skynet sends a Terminator back in time to kill Sarah, the mother to be of John Connor, the Leader of the human resistance. The terminator can pass for human, is nearly indestructible, and has only one mission, killing Sarah Connor. One soldier is sent back to protect her from the killing machine. He must find Sarah before the Terminator can carry out it's mission.",
+				tags: ["inmortal", "robot", "time", "travel"]
+			},
+			{
+				title: "Titanic",
+				year: 1997,
+				duration: 195,
+				description: "After winning a trip on the RMS Titanic during a dockside card game, American Jack Dawson spots the society girl Rose DeWitt Bukater who is on her way to Philadelphia to marry her rich snob fiancé Caledon Hockley. Rose feels helplessly trapped by her situation and makes her way to the aft deck and thinks of suicide until she is rescued by Jack. Cal is therefore obliged to invite Jack to dine at their first-class table where he suffers through the slights of his snobbish hosts. In return, he spirits Rose off to third-class for an evening of dancing, giving her the time of her life. Deciding to forsake her intended future all together, Rose asks Jack, who has made his living making sketches on the streets of Paris, to draw her in the nude wearing the invaluable blue diamond Cal has given her. Cal finds out and has Jack locked away. Soon afterwards, the ship hits an iceberg and Rose must find Jack while both must run from Cal even as the ship sinks deeper into the freezing water.",
+				tags: ["boat", "travel", "love", "romance"]
+			}
+		];
+		$scope.movies = defaultMovies;
+		submit(lsName, defaultMovies);
+	}
+
+	$scope.getDuration = function(dur){
+		var hours = Math.floor(dur / 60), minutes = dur % 60;
+		var res = "";
+
+		if(hours >= 1){
+			res = hours + "h ";
+		}
+		res += minutes + "m";
+
+		return res;
+	};
+
+	$scope.addMovie = function(){
+		var tags = $scope.newMovie.tags;
+		if(tags){
+			tags = tags.split(",");
+		}
+		$scope.newMovie.tags = tags;
+		$scope.movies.push($scope.newMovie);
+		$scope.newMovie = {};
+
+		if(submit(lsName, $scope.movies)){
+			message("success", "Successfully added!");
+		} else {
+			message("error", "An error ocurred!");
+		}
+	};
+
+	$scope.deleteMovie = function(title){
+		var index = arrayObjectIndexOf($scope.movies, title, "title");
+		$scope.movies.splice(index, 1);
+
+		if(submit(lsName, $scope.movies)){
+			message("success", "Successfully deleted!");
+		} else {
+			message("error", "An error ocurred!");
+		}
+	};
+
+	/*
+	//$watchCollection: se ejecuta cada vez que el arreglo (primer parámetro) es modificado y ejecuta el callback (segundo parámetro)
+	$scope.$watchCollection('movies', function(newVal, oldVal){
+		submit(lsName, $scope.movies);
+	});
+	*/
+
+	function submit(key, val){
+		return localStorageService.set(key, val);
+	};
+
+	function getItem(key){
+		return localStorageService.get(key);
+	};
+
+	function removeItem(key){
+		return localStorageService.remove(key);
+	};
+};
+
+function editMovieController($scope, $routeParams, localStorageService){
+	var movies = localStorageService.get(lsName);
+	var title = $routeParams.title;
+	var index = arrayObjectIndexOf(movies, title, "title");
+
+	if(index == -1) window.location = "#!/";
+
+	$scope.movie = movies[index];
+
+	$scope.editMovie = function(){
+		var tags = $scope.movie.tags;
+		if(!Array.isArray(tags)){
+			tags = tags.split(",");
+		}
+		$scope.movie.tags = tags;
+		movies[index] = $scope.movie;
+
+		if(submit(lsName, movies)){
+			message("success", "Successfully edited!");
+			$scope.editForm.$setPristine();
+		} else {
+			message("error", "An error ocurred!");
+		}
+	};
+
+	function submit(key, val){
+		return localStorageService.set(key, val);
+	};
+
+	function getItem(key){
+		return localStorageService.get(key);
+	};
+
+	function removeItem(key){
+		return localStorageService.remove(key);
+	};
+};
+
+function movieDetailsController($scope, $routeParams, localStorageService){
+	var movies = localStorageService.get(lsName)
+	var title = $routeParams.title;
+	var index = arrayObjectIndexOf(movies, title, "title");
+
+	if(index == -1) window.location = "#!/";
+
+	$scope.movie = movies[index];
+
+	$scope.getDuration = function(dur){
+		var hours = Math.floor(dur / 60), minutes = dur % 60;
+		var res = "";
+
+		if(hours >= 1){
+			res = hours + "h ";
+		}
+		res += minutes + "m";
+
+		return res;
+	};
+};
+
+//$locationProvider: remueve el "!#" del URL (pero no se pueden enviar parámetros)
+moviesApp.config(["$routeProvider"/*, "$locationProvider"*/, routeProviderConfig]);
+
+function routeProviderConfig($routeProvider/*, $locationProvider*/){
+	$routeProvider
+		.when("/", {
+			templateUrl: "pages/movies.html",
+		})
+
+		.when("/addMovie", {
+			templateUrl: "pages/addMovie.html",
+		})
+
+		.when("/editMovie/:title", {
+			templateUrl: "pages/editMovie.html",
+		})
+
+		.when("/details/:title", {
+			templateUrl: "pages/details.html",
+		})
+
+		.otherwise({
+			redirectTo: "/"
+		});
+
+	//$locationProvider.html5Mode({enabled: true, requireBase: false});
+};
+
+function arrayObjectIndexOf(array, value, property){
+	for(var i = 0; i < array.length; i++){
+		if(array[i][property] === value) return i;
+	}
+	return -1;
+};
+
+function message(cssClass, text){
+	var msgList = document.getElementById("msgList"), extraStuff = false;
+
+	if(msgList == null){
+		extraStuff = true;
+		var body = document.getElementsByTagName("body")[0];
+		msgList = document.createElement("div");
+		msgList.id = "msgList";
+	}
+
+	var msg = document.createElement("div");
+	msg.classList.add("msg", cssClass);
+	msg.innerText = text;
+
+	if(extraStuff){
+		body.append(msgList);
+	}
+
+	msgList.append(msg);
+
+	setTimeout(function(){
+		msg.classList.add("show");
+	}, 0);
+
+	setTimeout(function(){
+		msg.classList.remove("show");
+		setTimeout(function(){
+			msg.remove();
+		}, 300)
+	}, 2000)
+};
